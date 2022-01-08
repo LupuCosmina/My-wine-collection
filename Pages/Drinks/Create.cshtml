@@ -1,0 +1,58 @@
+﻿@page
+@model My_wine_collection.Pages.Drinks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Wine</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Wine.Name" class="control-label"></label>
+                <input asp-for="Wine.Name" class="form-control" />
+                <span asp-validation-for="Wine.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wine.Region" class="control-label"></label>
+                <input asp-for="Wine.Region" class="form-control" />
+                <span asp-validation-for="Wine.Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wine.Year" class="control-label"></label>
+                <input asp-for="Wine.Year" class="form-control" />
+                <span asp-validation-for="Wine.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wine.Price" class="control-label"></label>
+                <input asp-for="Wine.Price" class="form-control" />
+                <span asp-validation-for="Wine.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wine.PurchaseDate" class="control-label"></label>
+                <input asp-for="Wine.PurchaseDate" class="form-control" />
+                <span asp-validation-for="Wine.PurchaseDate" class="text-danger"></span>
+            </div>
+            <label asp-for="Wine.ProducerID" class="control-label">Producer Name</label>
+            <select asp-for="Wine.ProducerID" class="form-control" asp-items="ViewBag.ProducerID">
+            </select>
+            <span asp-validation-for="Wine.ProducerID" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
